@@ -10,7 +10,9 @@ class SongList extends React.Component {
                     <div className={"right floated content"}>
                         <button
                             className={"ui button primary"}
-                            onClick={() => {this.props.selectSong(song)}}
+                            onClick={() => {
+                                this.props.selectSong(song)
+                            }}
                         >
                             Select
                         </button>
@@ -44,13 +46,12 @@ const mapStateToProps = (state) => {
  * B/c provider has access to Redux, we also pass in two functions that works with Redux
  * When passing action creator functions into Connect(),
  * it will call store.dispatch for you whenever you call the action creator
+ *
+ * The ()() means it is making two function calls
+ * Here we connecting the `State` from Redux Store to
+ * the `Props` in React Component: SongList
  * */
 export default connect(
     mapStateToProps,
     {selectSong: selectSong}
 )(SongList);
-/*
-The ()() means it is making two function calls
-Here we connecting the `State` from Redux Store to
-the `Props` in React Component: SongList
-*/
